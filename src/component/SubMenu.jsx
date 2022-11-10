@@ -2,13 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import {Box,Typography,Button} from "@mui/material";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import TuneIcon from "@mui/icons-material/Tune";
+import { Box, Typography } from "@mui/material";
 
-
-// line 12-43 are needed for tabs basic 
+// line 12-43 are needed for tabs basic
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -43,10 +39,8 @@ function a11yProps(index) {
 }
 
 function SubMenu() {
-
-  
   const [value, setValue] = React.useState(0);
-  
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -66,7 +60,6 @@ function SubMenu() {
     { count: 12, names: "MLB" },
     { count: 13, names: "NHL" },
   ];
-  const first = ["NCAAF", "NCAAB", "NBA", "UFC"];
   return (
     <>
       <Box
@@ -79,7 +72,7 @@ function SubMenu() {
         }}
       >
         <Box
-          sx={{ borderBottom: 1, borderColor: "divider", ml: { md: "10px" } }}
+          sx={{ borderBottom: 1, borderColor: "divider", ml: { md: "10px" },mb:2 }}
         >
           <Tabs
             value={value}
@@ -105,124 +98,7 @@ function SubMenu() {
             ))}
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
-          PublicBetting
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          PROReport 
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          PROProjections 
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-        <Box
-        sx={{
-          mx: 2,
-          height: "auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItem: "left",
-          justifyContent: "space-between",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: "900", fontFamily: "arial", mb: 2 }}
-        >
-          Sports Betting Odds
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            gap: 2,
-            mb: 2,
-          }}
-        >
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={first}
-            sx={{ width: "500px" }}
-            renderInput={(params) => (
-              <TextField {...params} sx={{ fontWeight: 800 }} />
-            )}
-          />
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={first}
-            sx={{ width: "500px" }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={first}
-            sx={{ width: "700px" }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-          <Button
-            disableElevation
-            size="large"
-            variant="contained"
-            sx={{
-              border: "1px solid rgba(0,0,0,.3)",
-              bgcolor: "white",
-              color: "inherit",
-              "&:hover": { bgcolor: "white" },
-
-              py: 1,
-              px: 4,
-            }}
-            startIcon={<TuneIcon />}
-          >
-            <Typography
-            variant="h6"
-              sx={{
-                fontWeight: "900",
-                textTransform: "none",
-              }}
-            >
-              Odds Settings
-            </Typography>
-          </Button>
-        </Box>
-      </Box>
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          FutureOdds 
-        </TabPanel>
-        <TabPanel value={value} index={5}>
-          NFL 
-        </TabPanel>
-        <TabPanel value={value} index={6}>
-          NCAAF 
-        </TabPanel>
-        <TabPanel value={value} index={7}>
-          NBA 
-        </TabPanel>
-        <TabPanel value={value} index={8}>
-          NCAAB 
-        </TabPanel>
-        <TabPanel value={value} index={9}>
-          Golf 
-        </TabPanel>
-        <TabPanel value={value} index={10}>
-          UFC 
-        </TabPanel>
-        <TabPanel value={value} index={11}>
-          Soccer 
-        </TabPanel>
-        <TabPanel value={value} index={12}>
-          MLB 
-        </TabPanel>
-        <TabPanel value={value} index={13}>
-          NHL 
-        </TabPanel>
+        
       </Box>
     </>
   );

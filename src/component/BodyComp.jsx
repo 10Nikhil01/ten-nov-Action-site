@@ -18,6 +18,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
+import TuneIcon from "@mui/icons-material/Tune";
 function createData(
   SCHEDULED,
   OPEN,
@@ -252,29 +253,102 @@ const rows = [
   createData("Final"),
 ];
 function Main() {
-  const temporaryArray = [
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-    "Alabama",
-  ];
+  const temporaryArray = [];
   const tempTeams = [
     "Cincinnati Bengals",
     "Los Angeles Rams",
     "San Francisco 49ers",
     "Kansas City Chiefs",
   ];
+  const first = [];
   return (
     <>
+      <Box
+        sx={{
+          mx: 2,
+          mb: 2,
+          mt: 0,
+          height: "auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItem: "left",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: "900", fontFamily: "arial", mb: 2 }}
+        >
+          Sports Betting Odds
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            gap: 2,
+            mb: 2,
+          }}
+        >
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={first}
+            sx={{ width: "500px" }}
+            renderInput={(params) => (
+              <TextField {...params} sx={{ fontWeight: 800 }} />
+            )}
+          />
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={first}
+            sx={{ width: "500px" }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={first}
+            sx={{ width: "700px" }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+          <Button
+            disableElevation
+            size="large"
+            variant="contained"
+            sx={{
+              border: "1px solid rgba(0,0,0,.3)",
+              bgcolor: "white",
+              color: "inherit",
+              "&:hover": { bgcolor: "white" },
+
+              py: 1,
+              px: 4,
+            }}
+            startIcon={<TuneIcon />}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "900",
+                textTransform: "none",
+              }}
+            >
+              Odds Settings
+            </Typography>
+          </Button>
+        </Box>
+      </Box>
       <Grid container spacing={1}>
         <Grid item md={9}>
-          <Card variant="outlined" sx={{ maxHeight: "75vh" ,overflowY:"scroll"}}>
-            <Table >
+          <Card
+            variant="outlined"
+            sx={{ maxHeight: "75vh", overflowY: "scroll" }}
+          >
+            <Table>
               <TableHead sx={{ fontWeight: "900" }}>
                 <TableRow>
                   <TableCell
@@ -339,23 +413,48 @@ function Main() {
                     key={row.SCHEDULED}
                     sx={{
                       "&:last-child td, &:last-child th": { border: 0 },
-                      "&:nth-child(3n) th" : {
-                        textAlign: "left",fontWeight:"normal"
+                      "&:nth-child(3n) th": {
+                        textAlign: "left",
+                        fontWeight: "normal",
                       },
                       fontWeight: "900",
                     }}
                   >
-                    <TableCell component="th" scope="row" align="right" sx={{fontWeight:"900"}}>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      align="right"
+                      sx={{ fontWeight: "900" }}
+                    >
                       {row.SCHEDULED}
                     </TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900",color:"grey"}}>{row.OPEN}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.BESTODDS}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.POINTSBET}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.BETMGM}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.SPORTSBOOK}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.FANDUEL}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.DRAFTSKINGS}</TableCell>
-                    <TableCell align="right" sx={{fontWeight:"900"}}>{row.BETRIVERS}</TableCell>
+                    <TableCell
+                      align="right"
+                      sx={{ fontWeight: "900", color: "grey" }}
+                    >
+                      {row.OPEN}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.BESTODDS}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.POINTSBET}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.BETMGM}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.SPORTSBOOK}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.FANDUEL}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.DRAFTSKINGS}
+                    </TableCell>
+                    <TableCell align="right" sx={{ fontWeight: "900" }}>
+                      {row.BETRIVERS}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
